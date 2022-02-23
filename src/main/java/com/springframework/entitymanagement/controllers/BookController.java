@@ -3,7 +3,6 @@ package com.springframework.entitymanagement.controllers;
 import com.springframework.entitymanagement.repositories.BookRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -17,7 +16,9 @@ public class BookController {
 
     @RequestMapping("/books")
     public String getBooks(Model model){
+
         model.addAttribute("books", bookRepository.findAll());
+
         return "books/list";
     }
 }
